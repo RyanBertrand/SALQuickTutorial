@@ -11,6 +11,8 @@ Here at [Seeking Alpha](http://www.seekingalpha.com) we decided to shift, in our
 
 We invite you to contribute with our first iOS open source project.
 
+![SALQuickTutorial](https://raw.github.com/seekingalpha/SALQuickTutorial/master/SALQTScreenshot.png)
+
 ## Instalation
 The preferred way to install is using CocoaPods
 
