@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
 
   s.name         = "SALQuickTutorial"
-  s.version      = "0.1.2"
+  s.version      = "0.2"
   s.summary      = "One-time-quick-tutorials to be shown as the user discovers your app"
 
   s.description  = <<-DESC
