@@ -28,7 +28,6 @@ Returns if a tutorial with the key needs to be shown or not.
 */
 + (BOOL)needsToShowForKey:(NSString *)uniqueKey;
 
-
 - (instancetype)initWithTitle:(NSString *)title message:(NSString *)message image:(UIImage *)image;
 
 /**
@@ -41,14 +40,28 @@ Shows the SALQuickTutorialViewController object inside a MZFormSheetController w
  */
 - (void)showInFormSheetController:(MZFormSheetController *)formSheetController;
 
+/**
+ The handler to call when presented form sheet is after dismiss.
+ */
+@property (nonatomic, copy) void (^didDismissCompletionHandler)(void);
+
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 /**
- Shows the provided image, with contentMode set to UIViewContentModeScaleAspectFit
+ contentMode set to UIViewContentModeScaleAspectFit
  */
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @property (weak, nonatomic) IBOutlet UILabel *messageLabel;
+
+@property (weak, nonatomic) IBOutlet UIButton *dismissButton;
+
+/**
+ Defaults to NO.
+ If set to YES, the gesture recognizers are disabled, and user can only close the quick tutorial by pressing the button.
+ If you want to customize or change the title of the button, access the property dismissButton
+ */
+@property (nonatomic, assign) BOOL dismissesWithButton;
 
 @end
 
