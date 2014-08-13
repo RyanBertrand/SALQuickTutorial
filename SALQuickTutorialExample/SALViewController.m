@@ -66,7 +66,7 @@ static NSString *const SALProvidedBySAQuickTutorialKey = @"SALProvidedBySAQuickT
         //if you want more customization, like completion block, transition, or setting to dismiss with the button, do it "manually"
         needsToShow = [SALQuickTutorialViewController needsToShowForKey:uniqueKey];
         if (needsToShow) {
-            SALQuickTutorialViewController *quickTutorialViewController = [[SALQuickTutorialViewController alloc] initWithTitle:title message:message image:image];
+            SALQuickTutorialViewController *quickTutorialViewController = [[SALQuickTutorialViewController alloc] initWithKey:uniqueKey title:title message:message image:image];
             
             if (self.dismissSegmentedControl.selectedSegmentIndex == 1) {
                 quickTutorialViewController.dismissesWithButton = YES;

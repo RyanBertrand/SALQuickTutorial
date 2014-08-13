@@ -17,6 +17,8 @@ static const NSTimeInterval SALQuickTutorialViewButtonSpace = 10;
 
 @interface SALQuickTutorialViewController ()
 
+@property (nonatomic, strong) NSString *uniqueKey;
+
 @property (nonatomic, strong) NSString *title;
 
 @property (nonatomic, strong) NSString *message;
@@ -50,21 +52,17 @@ static const NSTimeInterval SALQuickTutorialViewButtonSpace = 10;
         return NO;
     }
     
-    SALQuickTutorialViewController *quickTutorialViewController = [[self alloc] initWithTitle:title message:message image:image];
+    SALQuickTutorialViewController *quickTutorialViewController = [[self alloc] initWithKey:uniqueKey title:title message:message image:image];
     MZFormSheetController *formSheetController = [SALQuickTutorialViewController formSheetControllerWithQuickTutorialViewController:quickTutorialViewController];
     formSheetController.transitionStyle = transitionStyle;
     
     [quickTutorialViewController showInFormSheetController:formSheetController];
-    
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:uniqueKey];
-    [[NSUserDefaults standardUserDefaults] synchronize];
     
     return YES;
 }
 
 + (BOOL)needsToShowForKey:(NSString *)uniqueKey
 {
-    return YES;
     return [[NSUserDefaults standardUserDefaults] objectForKey:uniqueKey] == nil;
 }
 
@@ -90,7 +88,7 @@ static const NSTimeInterval SALQuickTutorialViewButtonSpace = 10;
 
 #pragma mark - SALQuickTutorialViewController creation
 
-- (instancetype)initWithTitle:(NSString *)title message:(NSString *)message image:(UIImage *)image
+- (instancetype)initWithKey:(NSString *)uniqueKey title:(NSString *)title message:(NSString *)message image:(UIImage *)image
 {
     self = [super initWithNibName:NSStringFromClass([self class]) bundle:[NSBundle mainBundle]];
     
@@ -99,7 +97,8 @@ static const NSTimeInterval SALQuickTutorialViewButtonSpace = 10;
     }
     
     self.dismissesWithButton = NO;
-    
+
+    self.uniqueKey = uniqueKey;
     self.title = title;
     self.message = message;
     self.image = image;
@@ -109,7 +108,7 @@ static const NSTimeInterval SALQuickTutorialViewButtonSpace = 10;
 
 - (instancetype)init
 {
-    @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"SALQuickTutorialViewController must be initialized with initWithTitle:message:image:" userInfo:nil];
+    @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"SALQuickTutorialViewController must be initialized with initWithKey:title:message:image:" userInfo:nil];
 }
 
 #pragma mark - view lifecycle
@@ -169,6 +168,9 @@ static const NSTimeInterval SALQuickTutorialViewButtonSpace = 10;
     }
     
     [formSheetController presentAnimated:YES completionHandler:nil];
+    
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:self.uniqueKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)dismiss

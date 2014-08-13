@@ -28,7 +28,7 @@ Returns if a tutorial with the key needs to be shown or not.
 */
 + (BOOL)needsToShowForKey:(NSString *)uniqueKey;
 
-- (instancetype)initWithTitle:(NSString *)title message:(NSString *)message image:(UIImage *)image;
+- (instancetype)initWithKey:(NSString *)uniqueKey title:(NSString *)title message:(NSString *)message image:(UIImage *)image;
 
 /**
 Shows the SALQuickTutorialViewController object inside a MZFormSheetController with default configurations.
