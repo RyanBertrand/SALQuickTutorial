@@ -1,13 +1,15 @@
 SALQuickTutorial
 ================
 
-Show quick tutorials, only once, **while** users discover your app.
+Show quick tutorials, only once, while the user discovers your app.
 
 Instead of showing a gray overlay before the user can start playing with your app (a common practice as of today), we thought it would be better to show these "tips" as needed according to the usage.
 
 SALQuickTutorial supports showing a view with a title, an image and a message. By default, to close, the user just needs to tap the screen, but you can configure it to work with a dismiss button. Also, you can set a completion block to be called when the view is dismissed.
 
 Here at [Seeking Alpha](http://www.seekingalpha.com) we decided to shift, in our next iOS version, from the gray overlay to the quick tutorials when they are really needed.
+
+We invite you to contribute with our first iOS open source project.
 
 ## Instalation
 The preferred way to install is using CocoaPods
@@ -59,6 +61,8 @@ Sometimes, you will want to disable the tap-anywhere-to-dismiss and add a *Got i
 - [x] Set completion block when tutorial is dismissed
 - [ ] Blurred background
 - [ ] Add support to voice instructions
+
+Your suggestions and contributions are welcome in the [issues tab](https://github.com/seekingalpha/SALQuickTutorial/issues)
 
 ## License
 
