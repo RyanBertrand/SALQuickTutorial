@@ -13,7 +13,7 @@ We invite you to contribute with our first iOS open source project.
 
 ![SALQuickTutorial](https://raw.github.com/seekingalpha/SALQuickTutorial/master/SALQTScreenshot.png)
 
-## Instalation
+## Installation
 The preferred way to install is using CocoaPods
 
 ```ruby
