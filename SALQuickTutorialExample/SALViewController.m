@@ -102,4 +102,13 @@ static NSString *const SALProvidedBySAQuickTutorialKey = @"SALProvidedBySAQuickT
     
     return YES;
 }
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = [touches anyObject];
+    if(![touch.view isMemberOfClass:[UITextField class]]) {
+        [touch.view endEditing:YES];
+    }
+}
+
 @end
