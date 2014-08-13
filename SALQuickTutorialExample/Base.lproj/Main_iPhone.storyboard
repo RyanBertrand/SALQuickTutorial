@@ -16,33 +16,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jgq-4J-Soh">
-                                <rect key="frame" x="94" y="208" width="132" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jgq-4J-Soh">
+                                <rect key="frame" x="95" y="223" width="132" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Show quick tutorial">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JOH-WU-dnp">
-                                <rect key="frame" x="20" y="33" width="280" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JOH-WU-dnp">
+                                <rect key="frame" x="20" y="25" width="119" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Message" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mVV-hS-wIw">
-                                <rect key="frame" x="20" y="95" width="280" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Message" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mVV-hS-wIw">
+                                <rect key="frame" x="20" y="68" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Unique key" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="99o-qd-5G2">
-                                <rect key="frame" x="20" y="152" width="280" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Unique key" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="99o-qd-5G2">
+                                <rect key="frame" x="181" y="25" width="119" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P7h-ce-gMU">
-                                <rect key="frame" x="52" y="246" width="216" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P7h-ce-gMU">
+                                <rect key="frame" x="53" y="254" width="216" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Show hard-coded quick tutorial">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -51,25 +51,42 @@
                                     <action selector="showHardCodedTutorial:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ESy-RI-Kr4"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="T9H-xY-7vw">
+                                <rect key="frame" x="33" y="124" width="257" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Tap on Background"/>
+                                    <segment title="Button"/>
+                                </segments>
+                            </segmentedControl>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dismiss with:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ibA-CQ-Hjk">
+                                <rect key="frame" x="110" y="100" width="102" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="PWS-Mw-6ds">
+                                <rect key="frame" x="48" y="182" width="225" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Nothing"/>
+                                    <segment title="Show Alert View"/>
+                                </segments>
+                            </segmentedControl>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Completion block" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bb9-tS-sMc">
+                                <rect key="frame" x="92" y="160" width="136" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="JOH-WU-dnp" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" symbolic="YES" id="53s-Rm-upZ"/>
-                            <constraint firstItem="99o-qd-5G2" firstAttribute="trailing" secondItem="mVV-hS-wIw" secondAttribute="trailing" id="8tQ-uZ-epw"/>
-                            <constraint firstItem="99o-qd-5G2" firstAttribute="leading" secondItem="mVV-hS-wIw" secondAttribute="leading" id="EcW-0d-SDP"/>
-                            <constraint firstItem="jgq-4J-Soh" firstAttribute="top" secondItem="99o-qd-5G2" secondAttribute="bottom" constant="26" id="L2H-JB-3mY"/>
-                            <constraint firstItem="P7h-ce-gMU" firstAttribute="centerX" secondItem="jgq-4J-Soh" secondAttribute="centerX" id="QBd-gL-eKq"/>
-                            <constraint firstItem="JOH-WU-dnp" firstAttribute="trailing" secondItem="mVV-hS-wIw" secondAttribute="trailing" id="Rc1-1Y-eOb"/>
-                            <constraint firstItem="99o-qd-5G2" firstAttribute="top" secondItem="mVV-hS-wIw" secondAttribute="bottom" constant="27" id="ece-NI-Jfo"/>
-                            <constraint firstItem="P7h-ce-gMU" firstAttribute="top" secondItem="jgq-4J-Soh" secondAttribute="bottom" constant="8" symbolic="YES" id="g0p-Rk-wRI"/>
-                            <constraint firstItem="mVV-hS-wIw" firstAttribute="top" secondItem="JOH-WU-dnp" secondAttribute="bottom" constant="32" id="kt1-Nj-fQH"/>
-                            <constraint firstItem="JOH-WU-dnp" firstAttribute="leading" secondItem="mVV-hS-wIw" secondAttribute="leading" id="nB5-CZ-Jnr"/>
-                            <constraint firstItem="99o-qd-5G2" firstAttribute="centerX" secondItem="jgq-4J-Soh" secondAttribute="centerX" id="phi-o5-X71"/>
-                            <constraint firstAttribute="trailing" secondItem="JOH-WU-dnp" secondAttribute="trailing" constant="20" symbolic="YES" id="qhx-Fv-CDF"/>
-                            <constraint firstItem="JOH-WU-dnp" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="13" id="qpj-pc-7xZ"/>
-                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="completionSegmentedControl" destination="PWS-Mw-6ds" id="2df-S8-IdV"/>
+                        <outlet property="dismissSegmentedControl" destination="T9H-xY-7vw" id="aYu-eq-xDc"/>
                         <outlet property="messageTextField" destination="mVV-hS-wIw" id="lfN-l8-Awl"/>
                         <outlet property="titleTextField" destination="JOH-WU-dnp" id="lWM-S7-EY6"/>
                         <outlet property="uniqueKeyTextField" destination="99o-qd-5G2" id="J72-LU-hj0"/>

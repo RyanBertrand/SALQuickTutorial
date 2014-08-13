@@ -17,10 +17,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wA2-P6-XG2">
-                                <rect key="frame" x="232" y="289" width="304" height="30"/>
+                                <rect key="frame" x="232" y="307" width="304" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="304" id="YCo-tD-4vI"/>
+                                    <constraint firstAttribute="width" constant="304" id="9Lt-IQ-FbA"/>
                                 </constraints>
                                 <state key="normal" title="Show quick tutorial">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -30,28 +30,28 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xkl-nI-wpc">
-                                <rect key="frame" x="173" y="120" width="422" height="30"/>
+                                <rect key="frame" x="173" y="64" width="422" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="422" id="UaB-4H-plt"/>
+                                    <constraint firstAttribute="width" constant="422" id="xJh-cD-jRQ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Message" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bW3-XG-Voq">
-                                <rect key="frame" x="173" y="182" width="422" height="30"/>
+                                <rect key="frame" x="173" y="126" width="422" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Unique key" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wSi-WH-CL2">
-                                <rect key="frame" x="173" y="239" width="422" height="30"/>
+                                <rect key="frame" x="173" y="183" width="422" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aLZ-GO-fNK">
-                                <rect key="frame" x="276" y="340" width="216" height="30"/>
+                                <rect key="frame" x="276" y="345" width="216" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Show hard-coded quick tutorial">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -60,24 +60,65 @@
                                     <action selector="showHardCodedTutorial:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wJi-r3-mfI"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="yrl-7C-JJA">
+                                <rect key="frame" x="65" y="263" width="263" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Tap on Background"/>
+                                    <segment title="Button"/>
+                                </segments>
+                            </segmentedControl>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Dismiss with:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhI-y2-uzQ">
+                                <rect key="frame" x="145" y="233" width="102" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Xwc-uB-9u1">
+                                <rect key="frame" x="477" y="263" width="225" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Nothing"/>
+                                    <segment title="Show Alert View"/>
+                                </segments>
+                            </segmentedControl>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Completion block" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aX2-La-YwY">
+                                <rect key="frame" x="521" y="233" width="136" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="aLZ-GO-fNK" firstAttribute="top" secondItem="wA2-P6-XG2" secondAttribute="bottom" constant="21" id="BlC-ej-zve"/>
-                            <constraint firstItem="wSi-WH-CL2" firstAttribute="leading" secondItem="bW3-XG-Voq" secondAttribute="leading" id="DMo-7s-fYW"/>
-                            <constraint firstItem="wSi-WH-CL2" firstAttribute="top" secondItem="bW3-XG-Voq" secondAttribute="bottom" constant="27" id="JDq-Wp-dkL"/>
-                            <constraint firstItem="xkl-nI-wpc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="Ls2-bZ-oKJ"/>
-                            <constraint firstItem="bW3-XG-Voq" firstAttribute="top" secondItem="xkl-nI-wpc" secondAttribute="bottom" constant="32" id="MzS-dP-fpk"/>
-                            <constraint firstItem="bW3-XG-Voq" firstAttribute="trailing" secondItem="xkl-nI-wpc" secondAttribute="trailing" id="SSn-2e-tAX"/>
-                            <constraint firstItem="wA2-P6-XG2" firstAttribute="centerX" secondItem="aLZ-GO-fNK" secondAttribute="centerX" id="aSe-ww-oBd"/>
-                            <constraint firstItem="bW3-XG-Voq" firstAttribute="leading" secondItem="xkl-nI-wpc" secondAttribute="leading" id="dSW-Ph-haf"/>
-                            <constraint firstItem="wA2-P6-XG2" firstAttribute="top" secondItem="wSi-WH-CL2" secondAttribute="bottom" constant="20" id="fuI-qf-XJu"/>
-                            <constraint firstItem="aLZ-GO-fNK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="oRu-Pf-qxz"/>
-                            <constraint firstItem="bW3-XG-Voq" firstAttribute="trailing" secondItem="wSi-WH-CL2" secondAttribute="trailing" id="v5A-Hl-524"/>
-                            <constraint firstItem="wA2-P6-XG2" firstAttribute="centerX" secondItem="wSi-WH-CL2" secondAttribute="centerX" id="x7M-0A-gtw"/>
+                            <constraint firstItem="xkl-nI-wpc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="44" id="0kf-xW-Q4W"/>
+                            <constraint firstAttribute="trailing" secondItem="Xwc-uB-9u1" secondAttribute="trailing" constant="66" id="0lI-sP-Mtm"/>
+                            <constraint firstItem="yrl-7C-JJA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="65" id="1n0-Eb-SFq"/>
+                            <constraint firstItem="yhI-y2-uzQ" firstAttribute="top" secondItem="wSi-WH-CL2" secondAttribute="bottom" constant="20" id="2C6-f2-lcn"/>
+                            <constraint firstItem="wSi-WH-CL2" firstAttribute="top" secondItem="bW3-XG-Voq" secondAttribute="bottom" constant="27" id="4zY-KA-Ch6"/>
+                            <constraint firstItem="Xwc-uB-9u1" firstAttribute="centerX" secondItem="aX2-La-YwY" secondAttribute="centerX" id="8IC-xD-C3l"/>
+                            <constraint firstItem="bW3-XG-Voq" firstAttribute="leading" secondItem="xkl-nI-wpc" secondAttribute="leading" id="9Cz-Lb-8u1"/>
+                            <constraint firstItem="bW3-XG-Voq" firstAttribute="trailing" secondItem="wSi-WH-CL2" secondAttribute="trailing" id="J7U-F5-ohQ"/>
+                            <constraint firstItem="yrl-7C-JJA" firstAttribute="baseline" secondItem="Xwc-uB-9u1" secondAttribute="baseline" id="KIj-Dr-9qC"/>
+                            <constraint firstItem="wA2-P6-XG2" firstAttribute="centerX" secondItem="wSi-WH-CL2" secondAttribute="centerX" id="MN3-3T-5KT"/>
+                            <constraint firstItem="wSi-WH-CL2" firstAttribute="leading" secondItem="bW3-XG-Voq" secondAttribute="leading" id="N6o-cX-bem"/>
+                            <constraint firstItem="wA2-P6-XG2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ra9-19-R1H"/>
+                            <constraint firstItem="aLZ-GO-fNK" firstAttribute="top" secondItem="wA2-P6-XG2" secondAttribute="bottom" constant="8" symbolic="YES" id="SlP-gH-KkO"/>
+                            <constraint firstItem="yhI-y2-uzQ" firstAttribute="centerX" secondItem="yrl-7C-JJA" secondAttribute="centerX" id="VxA-ih-lXq"/>
+                            <constraint firstItem="xkl-nI-wpc" firstAttribute="trailing" secondItem="bW3-XG-Voq" secondAttribute="trailing" id="WYI-bX-aMx"/>
+                            <constraint firstItem="aLZ-GO-fNK" firstAttribute="centerX" secondItem="wA2-P6-XG2" secondAttribute="centerX" id="aDB-sA-Liy"/>
+                            <constraint firstItem="bW3-XG-Voq" firstAttribute="top" secondItem="xkl-nI-wpc" secondAttribute="bottom" constant="32" id="e8y-Sf-Qub"/>
+                            <constraint firstItem="yrl-7C-JJA" firstAttribute="top" secondItem="yhI-y2-uzQ" secondAttribute="bottom" constant="9" id="iM7-Aq-oZl"/>
+                            <constraint firstItem="aX2-La-YwY" firstAttribute="baseline" secondItem="yhI-y2-uzQ" secondAttribute="baseline" id="iTI-s2-8lD"/>
+                            <constraint firstItem="Xwc-uB-9u1" firstAttribute="top" secondItem="yrl-7C-JJA" secondAttribute="top" id="rhn-ji-iRW"/>
+                            <constraint firstItem="wA2-P6-XG2" firstAttribute="top" secondItem="yrl-7C-JJA" secondAttribute="bottom" constant="16" id="sBr-yZ-k42"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="completionSegmentedControl" destination="Xwc-uB-9u1" id="YTu-CZ-NMW"/>
+                        <outlet property="dismissSegmentedControl" destination="yrl-7C-JJA" id="GKp-cN-xt1"/>
                         <outlet property="messageTextField" destination="bW3-XG-Voq" id="G1P-tq-sJ3"/>
                         <outlet property="titleTextField" destination="xkl-nI-wpc" id="w7Z-WV-lhl"/>
                         <outlet property="uniqueKeyTextField" destination="wSi-WH-CL2" id="jjP-pi-DvY"/>

@@ -8,6 +8,7 @@
 
 #import "SALViewController.h"
 #import "SALQuickTutorialViewController.h"
+#import <MZFormSheetController/MZFormSheetController.h>
 
 static NSString *const SALProvidedBySAQuickTutorialKey = @"SALProvidedBySAQuickTutorialKey";
 
@@ -16,6 +17,8 @@ static NSString *const SALProvidedBySAQuickTutorialKey = @"SALProvidedBySAQuickT
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet UITextField *messageTextField;
 @property (weak, nonatomic) IBOutlet UITextField *uniqueKeyTextField;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *completionSegmentedControl;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *dismissSegmentedControl;
 
 - (IBAction)showQuickTutorial:(id)sender;
 
@@ -41,20 +44,43 @@ static NSString *const SALProvidedBySAQuickTutorialKey = @"SALProvidedBySAQuickT
         return;
     }
     
-    [self.view endEditing:YES];
-    
-    BOOL needsToShow = [SALQuickTutorialViewController showIfNeededForKey:self.uniqueKeyTextField.text title:self.titleTextField.text message:self.messageTextField.text image:[UIImage imageNamed:@"QuickTutorialExampleImage"]];
-    
-    if (!needsToShow) {
-        [self alreadyShownWithUniqueKey:self.uniqueKeyTextField.text];
-    }
+    [self showIfNeededForKey:self.uniqueKeyTextField.text title:self.titleTextField.text message:self.messageTextField.text image:[UIImage imageNamed:@"QuickTutorialExampleImage"]];
 }
 
 - (IBAction)showHardCodedTutorial:(id)sender
 {
+    [self showIfNeededForKey:SALProvidedBySAQuickTutorialKey title:@"SALQuickTutorialViewController" message:@"Provided by the Seeking Alpha iOS team. Enjoy! Pull requests are welcome" image:[UIImage imageNamed:@"QuickTutorialExampleImage"]];
+}
+
+- (void)showIfNeededForKey:(NSString *)uniqueKey title:(NSString *)title message:(NSString *)message image:(UIImage *)image
+{
     [self.view endEditing:YES];
     
-    BOOL needsToShow = [SALQuickTutorialViewController showIfNeededForKey:SALProvidedBySAQuickTutorialKey title:@"SALQuickTutorialViewController" message:@"Provided by the Seeking Alpha iOS team. Enjoy! Pull requests are welcome" image:[UIImage imageNamed:@"QuickTutorialExampleImage"]];
+    BOOL needsToShow;
+    
+    if (self.dismissSegmentedControl.selectedSegmentIndex == 0 && self.completionSegmentedControl.selectedSegmentIndex == 0) {
+        //if you want to enable tapping on background, just use the convenience method
+        needsToShow = [SALQuickTutorialViewController showIfNeededForKey:uniqueKey title:title message:message image:image];
+    }
+    else {
+        //if you want more customization, like completion block, transition, or setting to dismiss with the button, do it "manually"
+        needsToShow = [SALQuickTutorialViewController needsToShowForKey:uniqueKey];
+        if (needsToShow) {
+            SALQuickTutorialViewController *quickTutorialViewController = [[SALQuickTutorialViewController alloc] initWithTitle:title message:message image:image];
+            
+            if (self.dismissSegmentedControl.selectedSegmentIndex == 1) {
+                quickTutorialViewController.dismissesWithButton = YES;
+            }
+            
+            if (self.completionSegmentedControl.selectedSegmentIndex == 1) {
+                [quickTutorialViewController setDidDismissCompletionHandler:^{
+                    [[[UIAlertView alloc] initWithTitle:@"SALQuickTutorialViewController supports completion block" message:[NSString stringWithFormat:@"Quick tutorial with key %@ was dismissed", uniqueKey] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
+                }];
+            }
+            
+            [quickTutorialViewController show];
+        }
+    }
     
     if (!needsToShow) {
         [self alreadyShownWithUniqueKey:SALProvidedBySAQuickTutorialKey];
@@ -68,7 +94,7 @@ static NSString *const SALProvidedBySAQuickTutorialKey = @"SALProvidedBySAQuickT
 
 - (BOOL)validateTextFields
 {
-    for (UITextField *textField in @[self.titleTextField, self.messageTextField, self.uniqueKeyTextField]) {
+    for (UITextField *textField in @[self.titleTextField, self.uniqueKeyTextField]) {
         if ([textField.text length] == 0) {
             return NO;
         }
