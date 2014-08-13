@@ -22,9 +22,9 @@
 		4C34AA33199A0FDA00562C02 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C34AA12199A0FDA00562C02 /* UIKit.framework */; };
 		4C34AA3B199A0FDA00562C02 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C34AA39199A0FDA00562C02 /* InfoPlist.strings */; };
 		4C34AA3D199A0FDA00562C02 /* SALQuickTutorialExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C34AA3C199A0FDA00562C02 /* SALQuickTutorialExampleTests.m */; };
-		4C34AA4A199A10DB00562C02 /* SALQuickTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C34AA49199A10DB00562C02 /* SALQuickTutorialViewController.m */; };
-		4C34AA4C199A1A0900562C02 /* SALQuickTutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C34AA4B199A1A0900562C02 /* SALQuickTutorialViewController.xib */; };
 		4F119F4CA86D494A815DB527 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED60191ADB9E40A9BEDE4F30 /* libPods.a */; };
+		D7EDC103199B5A2B0077C80D /* SALQuickTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7EDC101199B5A2B0077C80D /* SALQuickTutorialViewController.m */; };
+		D7EDC104199B5A2B0077C80D /* SALQuickTutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7EDC102199B5A2B0077C80D /* SALQuickTutorialViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,9 +59,9 @@
 		4C34AA38199A0FDA00562C02 /* SALQuickTutorialExampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SALQuickTutorialExampleTests-Info.plist"; sourceTree = "<group>"; };
 		4C34AA3A199A0FDA00562C02 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4C34AA3C199A0FDA00562C02 /* SALQuickTutorialExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SALQuickTutorialExampleTests.m; sourceTree = "<group>"; };
-		4C34AA48199A10DB00562C02 /* SALQuickTutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SALQuickTutorialViewController.h; sourceTree = "<group>"; };
-		4C34AA49199A10DB00562C02 /* SALQuickTutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SALQuickTutorialViewController.m; sourceTree = "<group>"; };
-		4C34AA4B199A1A0900562C02 /* SALQuickTutorialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SALQuickTutorialViewController.xib; sourceTree = "<group>"; };
+		D7EDC100199B5A2B0077C80D /* SALQuickTutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SALQuickTutorialViewController.h; sourceTree = "<group>"; };
+		D7EDC101199B5A2B0077C80D /* SALQuickTutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SALQuickTutorialViewController.m; sourceTree = "<group>"; };
+		D7EDC102199B5A2B0077C80D /* SALQuickTutorialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SALQuickTutorialViewController.xib; sourceTree = "<group>"; };
 		ED60191ADB9E40A9BEDE4F30 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -170,11 +170,11 @@
 		4C34AA47199A0FF800562C02 /* SALQuickTutorial */ = {
 			isa = PBXGroup;
 			children = (
-				4C34AA48199A10DB00562C02 /* SALQuickTutorialViewController.h */,
-				4C34AA49199A10DB00562C02 /* SALQuickTutorialViewController.m */,
-				4C34AA4B199A1A0900562C02 /* SALQuickTutorialViewController.xib */,
+				D7EDC100199B5A2B0077C80D /* SALQuickTutorialViewController.h */,
+				D7EDC101199B5A2B0077C80D /* SALQuickTutorialViewController.m */,
+				D7EDC102199B5A2B0077C80D /* SALQuickTutorialViewController.xib */,
 			);
-			name = SALQuickTutorial;
+			path = SALQuickTutorial;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,7 +260,7 @@
 				4C34AA2A199A0FDA00562C02 /* Images.xcassets in Resources */,
 				4C34AA22199A0FDA00562C02 /* Main_iPhone.storyboard in Resources */,
 				4C34AA19199A0FDA00562C02 /* InfoPlist.strings in Resources */,
-				4C34AA4C199A1A0900562C02 /* SALQuickTutorialViewController.xib in Resources */,
+				D7EDC104199B5A2B0077C80D /* SALQuickTutorialViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,7 +314,7 @@
 			files = (
 				4C34AA28199A0FDA00562C02 /* SALViewController.m in Sources */,
 				4C34AA1B199A0FDA00562C02 /* main.m in Sources */,
-				4C34AA4A199A10DB00562C02 /* SALQuickTutorialViewController.m in Sources */,
+				D7EDC103199B5A2B0077C80D /* SALQuickTutorialViewController.m in Sources */,
 				4C34AA1F199A0FDA00562C02 /* SALAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
