@@ -16,6 +16,7 @@ static NSString *const SALProvidedBySAQuickTutorialKey = @"SALProvidedBySAQuickT
 
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet UITextField *messageTextField;
+@property (weak, nonatomic) IBOutlet UITextField *dismissTextField;
 @property (weak, nonatomic) IBOutlet UITextField *uniqueKeyTextField;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *completionSegmentedControl;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *dismissSegmentedControl;
@@ -44,15 +45,15 @@ static NSString *const SALProvidedBySAQuickTutorialKey = @"SALProvidedBySAQuickT
         return;
     }
     
-    [self showIfNeededForKey:self.uniqueKeyTextField.text title:self.titleTextField.text message:self.messageTextField.text image:[UIImage imageNamed:@"QuickTutorialExampleImage"]];
+    [self showIfNeededForKey:self.uniqueKeyTextField.text title:self.titleTextField.text message:self.messageTextField.text image:[UIImage imageNamed:@"QuickTutorialExampleImage"] dismiss:[self.dismissTextField text]];
 }
 
 - (IBAction)showHardCodedTutorial:(id)sender
 {
-    [self showIfNeededForKey:SALProvidedBySAQuickTutorialKey title:@"SALQuickTutorialViewController" message:@"Provided by the Seeking Alpha iOS team. Enjoy! Pull requests are welcome" image:[UIImage imageNamed:@"QuickTutorialExampleImage"]];
+    [self showIfNeededForKey:SALProvidedBySAQuickTutorialKey title:@"SALQuickTutorialViewController" message:@"Provided by the Seeking Alpha iOS team. Enjoy! Pull requests are welcome" image:[UIImage imageNamed:@"QuickTutorialExampleImage"] dismiss:nil];
 }
 
-- (void)showIfNeededForKey:(NSString *)uniqueKey title:(NSString *)title message:(NSString *)message image:(UIImage *)image
+- (void)showIfNeededForKey:(NSString *)uniqueKey title:(NSString *)title message:(NSString *)message image:(UIImage *)image dismiss:(NSString *)dismiss
 {
     [self.view endEditing:YES];
     
@@ -67,6 +68,11 @@ static NSString *const SALProvidedBySAQuickTutorialKey = @"SALProvidedBySAQuickT
         needsToShow = [SALQuickTutorialViewController needsToShowForKey:uniqueKey];
         if (needsToShow) {
             SALQuickTutorialViewController *quickTutorialViewController = [[SALQuickTutorialViewController alloc] initWithKey:uniqueKey title:title message:message image:image];
+            
+            if ([dismiss length])
+            {
+                quickTutorialViewController = [[SALQuickTutorialViewController alloc] initWithKey:uniqueKey title:title message:message image:image dismiss:dismiss];
+            }
             
             if (self.dismissSegmentedControl.selectedSegmentIndex == 1) {
                 quickTutorialViewController.dismissesWithButton = YES;

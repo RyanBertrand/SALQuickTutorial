@@ -23,12 +23,18 @@ default transition style is MZFormSheetTransitionStyleFade
 
 + (BOOL)showIfNeededForKey:(NSString *)uniqueKey title:(NSString *)title message:(NSString *)message image:(UIImage *)image transitionStyle:(MZFormSheetTransitionStyle)transitionStyle;
 
++ (BOOL)showIfNeededForKey:(NSString *)uniqueKey title:(NSString *)title message:(NSString *)message image:(UIImage *)image dismiss:(NSString *)dismiss;
+
++ (BOOL)showIfNeededForKey:(NSString *)uniqueKey title:(NSString *)title message:(NSString *)message image:(UIImage *)image dismiss:(NSString *)dismiss transitionStyle:(MZFormSheetTransitionStyle)transitionStyle;
+
 /**
 Returns if a tutorial with the key needs to be shown or not.
 */
 + (BOOL)needsToShowForKey:(NSString *)uniqueKey;
 
 - (instancetype)initWithKey:(NSString *)uniqueKey title:(NSString *)title message:(NSString *)message image:(UIImage *)image;
+
+- (instancetype)initWithKey:(NSString *)uniqueKey title:(NSString *)title message:(NSString *)message image:(UIImage *)image dismiss:(NSString *)dismiss;
 
 /**
 Shows the SALQuickTutorialViewController object inside a MZFormSheetController with default configurations.
