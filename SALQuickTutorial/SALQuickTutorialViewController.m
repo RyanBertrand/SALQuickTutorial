@@ -23,6 +23,8 @@ static const NSTimeInterval SALQuickTutorialViewButtonSpace = 10;
 
 @property (nonatomic, strong) NSString *message;
 
+@property (nonatomic, strong) NSString *dismissButtonTitle;
+
 @property (nonatomic, strong) UIImage *image;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *messageHeightConstraint;
@@ -53,6 +55,26 @@ static const NSTimeInterval SALQuickTutorialViewButtonSpace = 10;
     }
     
     SALQuickTutorialViewController *quickTutorialViewController = [[self alloc] initWithKey:uniqueKey title:title message:message image:image];
+    MZFormSheetController *formSheetController = [SALQuickTutorialViewController formSheetControllerWithQuickTutorialViewController:quickTutorialViewController];
+    formSheetController.transitionStyle = transitionStyle;
+    
+    [quickTutorialViewController showInFormSheetController:formSheetController];
+    
+    return YES;
+}
+
++ (BOOL)showIfNeededForKey:(NSString *)uniqueKey title:(NSString *)title message:(NSString *)message image:(UIImage *)image dismiss:(NSString *)dismiss
+{
+    return [self showIfNeededForKey:uniqueKey title:title message:message image:image dismiss:dismiss transitionStyle:MZFormSheetTransitionStyleFade];
+}
+
++ (BOOL)showIfNeededForKey:(NSString *)uniqueKey title:(NSString *)title message:(NSString *)message image:(UIImage *)image dismiss:(NSString *)dismiss transitionStyle:(MZFormSheetTransitionStyle)transitionStyle
+{
+    if (![self needsToShowForKey:uniqueKey]) {
+        return NO;
+    }
+    
+    SALQuickTutorialViewController *quickTutorialViewController = [[self alloc] initWithKey:uniqueKey title:title message:message image:image dismiss:dismiss];
     MZFormSheetController *formSheetController = [SALQuickTutorialViewController formSheetControllerWithQuickTutorialViewController:quickTutorialViewController];
     formSheetController.transitionStyle = transitionStyle;
     
@@ -106,9 +128,22 @@ static const NSTimeInterval SALQuickTutorialViewButtonSpace = 10;
     return self;
 }
 
+- (instancetype)initWithKey:(NSString *)uniqueKey title:(NSString *)title message:(NSString *)message image:(UIImage *)image dismiss:(NSString *)dismiss
+{
+    self = [self initWithKey:uniqueKey title:title message:message image:image];
+    
+    if (!self) {
+        return nil;
+    }
+    
+    self.dismissButtonTitle = dismiss;
+    
+    return self;
+}
+
 - (instancetype)init
 {
-    @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"SALQuickTutorialViewController must be initialized with initWithKey:title:message:image:" userInfo:nil];
+    @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"SALQuickTutorialViewController must be initialized with initWithKey:title:message:image: or initWithKey:title:message:image:dismiss" userInfo:nil];
 }
 
 #pragma mark - view lifecycle
@@ -120,6 +155,9 @@ static const NSTimeInterval SALQuickTutorialViewButtonSpace = 10;
     self.titleLabel.text = self.title;
     self.messageLabel.text = self.message;
     self.imageView.image = self.image;
+    
+    if (self.dismissButtonTitle != nil)
+        [self.dismissButton setTitle:self.dismissButtonTitle forState:UIControlStateNormal];
     
     self.dismissButton.tintColor = [UIApplication sharedApplication].delegate.window.tintColor;
     
