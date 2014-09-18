@@ -23,7 +23,7 @@ static const NSTimeInterval SALQuickTutorialViewButtonSpace = 10;
 
 @property (nonatomic, strong) NSString *message;
 
-@property (nonatomic, strong) NSString *dismissLabel;
+@property (nonatomic, strong) NSString *dismissTitle;
 
 @property (nonatomic, strong) UIImage *image;
 
@@ -136,7 +136,7 @@ static const NSTimeInterval SALQuickTutorialViewButtonSpace = 10;
         return nil;
     }
     
-    self.dismissLabel = dismiss;
+    self.dismissTitle = dismiss;
     
     return self;
 }
@@ -156,7 +156,8 @@ static const NSTimeInterval SALQuickTutorialViewButtonSpace = 10;
     self.messageLabel.text = self.message;
     self.imageView.image = self.image;
     
-    [self.dismissButton setTitle:self.dismissLabel forState:UIControlStateNormal];
+    if (self.dismissTitle != nil)
+        [self.dismissButton setTitle:self.dismissTitle forState:UIControlStateNormal];
     
     self.dismissButton.tintColor = [UIApplication sharedApplication].delegate.window.tintColor;
     
