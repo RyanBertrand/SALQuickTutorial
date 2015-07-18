@@ -15,6 +15,8 @@ static const NSTimeInterval SALQuickTutorialViewButtonHeight = 30;
 static const NSTimeInterval SALQuickTutorialViewMessageSpace = 10;
 static const NSTimeInterval SALQuickTutorialViewButtonSpace = 10;
 
+static NSString *nibName = nil;
+
 @interface SALQuickTutorialViewController ()
 
 @property (nonatomic, strong) NSString *uniqueKey;
@@ -40,6 +42,19 @@ static const NSTimeInterval SALQuickTutorialViewButtonSpace = 10;
 @end
 
 @implementation SALQuickTutorialViewController
+
++(void)setNibNameOverride:(NSString *)aNibName{
+    nibName = aNibName;
+}
+
++(NSString *)getNibName{
+    if(nibName){
+        return nibName;
+    }
+    else{
+        return NSStringFromClass(self);
+    }
+}
 
 #pragma mark - Convenience methods
 
@@ -112,7 +127,7 @@ static const NSTimeInterval SALQuickTutorialViewButtonSpace = 10;
 
 - (instancetype)initWithKey:(NSString *)uniqueKey title:(NSString *)title message:(NSString *)message image:(UIImage *)image
 {
-    self = [super initWithNibName:NSStringFromClass([self class]) bundle:[NSBundle mainBundle]];
+    self = [super initWithNibName:[self getNibName] bundle:[NSBundle mainBundle]];
     
     if (!self) {
         return nil;

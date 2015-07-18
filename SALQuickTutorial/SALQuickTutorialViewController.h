@@ -32,6 +32,8 @@ Returns if a tutorial with the key needs to be shown or not.
 */
 + (BOOL)needsToShowForKey:(NSString *)uniqueKey;
 
++(void)setNibNameOverride:(NSString *)nibName;
+
 - (instancetype)initWithKey:(NSString *)uniqueKey title:(NSString *)title message:(NSString *)message image:(UIImage *)image;
 
 - (instancetype)initWithKey:(NSString *)uniqueKey title:(NSString *)title message:(NSString *)message image:(UIImage *)image dismiss:(NSString *)dismiss;
