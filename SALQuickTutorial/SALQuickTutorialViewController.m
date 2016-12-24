@@ -127,7 +127,7 @@ static NSString *nibName = nil;
 
 - (instancetype)initWithKey:(NSString *)uniqueKey title:(NSString *)title message:(NSString *)message image:(UIImage *)image
 {
-    self = [super initWithNibName:[self getNibName] bundle:[NSBundle mainBundle]];
+    self = [super initWithNibName:[SALQuickTutorialViewController getNibName] bundle:[NSBundle mainBundle]];
     
     if (!self) {
         return nil;
